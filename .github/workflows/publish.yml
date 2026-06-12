@@ -20,6 +20,6 @@ jobs:
         with:
           publish-features: true
           base-path-to-features: ./src
-          features-namespace: ${{ github.repository_owner }}
+          features-namespace: ${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

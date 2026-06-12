@@ -1,0 +1,18 @@
+name: Test Feature
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate devcontainer-feature.json
+        run: python3 -c "import json; json.load(open('devcontainer-feature.json')); print('  Valid JSON')"
+
+      - name: Validate install.sh syntax
+        run: sh -n install.sh && echo "  Valid shell syntax"

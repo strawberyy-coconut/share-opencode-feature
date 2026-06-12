@@ -1,0 +1,36 @@
+{
+    "id": "share-opencode",
+    "version": "1.0.0",
+    "name": "Share OpenCode Configuration",
+    "description": "Mounts host OpenCode directories (~/.opencode, ~/.config/opencode, ~/.local/share/opencode, ~/.local/state/opencode) into the devcontainer so configuration, CLI, plugins, and state are shared between host and container.",
+    "options": {
+        "shareAuth": {
+            "type": "boolean",
+            "default": false,
+            "description": "Share the host's auth.json (API keys) with the container. When false, all data except auth.json is shared."
+        }
+    },
+    "mounts": [
+        {
+            "source": "${localEnv:HOME}/.config/opencode",
+            "target": "/opencode-host/config",
+            "type": "bind"
+        },
+        {
+            "source": "${localEnv:HOME}/.opencode",
+            "target": "/opencode-host/cli",
+            "type": "bind"
+        },
+        {
+            "source": "${localEnv:HOME}/.local/share/opencode",
+            "target": "/opencode-host/data",
+            "type": "bind"
+        },
+        {
+            "source": "${localEnv:HOME}/.local/state/opencode",
+            "target": "/opencode-host/state",
+            "type": "bind"
+        }
+    ],
+    "installsAfter": []
+}

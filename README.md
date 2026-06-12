@@ -22,7 +22,7 @@ points so opencode finds them at the expected paths.
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/your-org/share-opencode:1": {
+        "ghcr.io/strawberyy-coconut/share-opencode-feature/share-opencode:1": {
             "shareAuth": false
         }
     }
